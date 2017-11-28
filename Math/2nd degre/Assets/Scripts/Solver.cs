@@ -21,7 +21,7 @@ public class Solver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        a = (float)double.Parse(Va.text);
+        a = float.Parse(Va.text);
         b = float.Parse(Vb.text);
         c = float.Parse(Vc.text);
         sortie.text = EqSolver(a, b, c);
@@ -48,7 +48,9 @@ public class Solver : MonoBehaviour
             x1 = (-b - disc2) / (2 * a);
             x2 = (-b + disc2) / (2 * a);
 
-            if (x1 > 0 && x2 > 0)
+            tableau.Append("x1=" + x1 + "      x2=" + x2);
+
+           /* if (x1 > 0 && x2 > 0)
             {
                 if (a > 0)
                 {
@@ -62,7 +64,15 @@ public class Solver : MonoBehaviour
                                                  "___________________|_________________|__________________|________________\n" +
                                                  "(x-{0:E})(x-{1:E}) |        -        0         +        0        -       \n"));
                 }
-            }
+            }*/
+        }else if(disc == 0)
+        {
+            x1 = -b / 2 * a;
+            tableau.Append("x1=" + x1);
+        }
+        else
+        {
+            tableau.Append("Pas de solution réelle");
         }
 
 
