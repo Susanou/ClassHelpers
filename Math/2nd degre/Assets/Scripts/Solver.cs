@@ -15,7 +15,7 @@ public class Solver : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Va.text = Vb.text = Vc.text = "0";
     }
 
     // Update is called once per frame
@@ -50,11 +50,11 @@ public class Solver : MonoBehaviour
 
             tableau.Append("x1=" + x1 + "      x2=" + x2);
 
-           /* if (x1 > 0 && x2 > 0)
+           if (x1 > 0 && x2 > 0)
             {
                 if (a > 0)
                 {
-                    tableau.Append(string.Format(" x                 | -inf           {0:E}             {1:E}            +inf\n" +
+                    tableau.Append(string.Format("\n\n x                 | -inf           "+x1+"             "+x2+"            +inf\n" +
                                                   "___________________|_________________|__________________|________________\n" +
                                                   "(x-{0:E})(x-{1:E}) |        +        0         -        0        +       \n"));
                 }
@@ -64,11 +64,16 @@ public class Solver : MonoBehaviour
                                                  "___________________|_________________|__________________|________________\n" +
                                                  "(x-{0:E})(x-{1:E}) |        -        0         +        0        -       \n"));
                 }
-            }*/
-        }else if(disc == 0)
+            }
+            else if (x1 > 0 && x2 < 0)
+            {
+
+            }
+        }
+        else if(disc == 0)
         {
             x1 = -b / 2 * a;
-            tableau.Append("x1=" + x1);
+            tableau.Append("x=" + x1);
         }
         else
         {
